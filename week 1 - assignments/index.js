@@ -137,18 +137,19 @@
 
 
 
-function filterAdultUsers(users) {
-    return users.filter(user => user.age > 18 && user.gender === "male");
-}
+// function filterAdultUsers(users) {
+//     return users.filter(user => user.age > 18 && user.gender === "male");
+// }
 
-// Example usage
-const users = [
-    { name: "Alice", age: 17, gender: "female" },
-    { name: "Bob", age: 25, gender: "male" },
-    { name: "Charlie", age: 160, gender: "male" },
-    { name: "Diana", age: 30, gender: "female" }
-];
+// // Example usage
+// const users = [
+//     { name: "Alice", age: 17, gender: "female" },
+//     { name: "Bob", age: 25, gender: "male" },
+//     { name: "Charlie", age: 160, gender: "male" },
+//     { name: "Diana", age: 30, gender: "female" }
+// ];
 
-const adultUsers = filterAdultUsers(users);
-console.log(adultUsers);
+// const adultUsers = filterAdultUsers(users);
+// console.log(adultUsers);
 // Output: [{ name: "Bob", age: 25 }, { name: "Diana", age: 30 }]
+console.log(5+2);
