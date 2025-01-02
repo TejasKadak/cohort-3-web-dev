@@ -35,8 +35,24 @@
 // const firstName = map.get('name');
 // console.log(firstName);
 
-function logName(){
-    console.log("Tejas Kadak");
+// function logName(){
+//     console.log("Tejas Kadak");
+// }
+
+// setTimeout(logName, 3000);
+
+
+// defining a promose is hard
+// using a promise is easy
+
+function waitFor3s(resolve){
+    console.log("inside a promise");
+    setTimeout(resolve, 3000);
 }
 
-setTimeout(logName, 3000);
+function main(){
+    console.log("hello worlddddd");
+}
+
+waitFor3s(main);
+console.log("hello");
