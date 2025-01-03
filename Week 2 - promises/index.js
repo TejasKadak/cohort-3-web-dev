@@ -45,14 +45,47 @@
 // defining a promose is hard
 // using a promise is easy
 
-function waitFor3s(resolve){
-    console.log("inside a promise");
-    setTimeout(resolve, 3000);
-}
+// function waitFor3s(resolve){
+//     console.log("inside a promise");
+//     setTimeout(resolve, 3000);
+// }
 
-function main(){
-    console.log("hello worlddddd");
-}
+// function main(){
+//     console.log("hello worlddddd");
+// }
 
-waitFor3s(main);
-console.log("hello");
+// waitFor3s(main);
+// console.log("hello");
+
+// function random(resolve){
+//    setTimeout(resolve, 3000);  
+// }
+
+// let p = new Promise(random);
+// // console.log(p);
+
+// function callback(){
+//     console.log("promise succeded");
+// }
+
+// p.then(callback);
+
+const fs = require("fs");
+function readTheFile(sendTheFinalValueHere){
+    console.log("inside read the file");
+    fs.readFile("a.txt", "utf-8", function(err, data){
+        sendTheFinalValueHere(data);
+    })
+}
+function readFile(fileName){
+    console.log("inside readfile");
+    return new Promise(readTheFile);
+}
+const p = readFile();
+function callback(contents){
+    console.log("inside callback");
+    setTimeout(() => console.log(contents), 5000);   
+}
+console.log("before then");
+p.then(callback);
+console.log("after then");
