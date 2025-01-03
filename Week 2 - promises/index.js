@@ -70,22 +70,59 @@
 
 // p.then(callback);
 
-const fs = require("fs");
-function readTheFile(sendTheFinalValueHere){
-    console.log("inside read the file");
-    fs.readFile("a.txt", "utf-8", function(err, data){
-        sendTheFinalValueHere(data);
-    })
+// const fs = require("fs");
+// function readTheFile(sendTheFinalValueHere){
+//     console.log("inside read the file");
+//     fs.readFile("a.txt", "utf-8", function(err, data){
+//         sendTheFinalValueHere(data);
+//     })
+// }
+// function readFile(fileName){
+//     console.log("inside readfile");
+//     return new Promise(readTheFile);
+// }
+// const p = readFile();
+// function callback(contents){
+//     console.log("inside callback");
+//     setTimeout(() => console.log(contents), 5000);   
+// }
+// console.log("before then");
+// p.then(callback);
+// console.log("after then");
+
+
+
+
+// creating our own promise class
+
+class Promise2{
+    constructor(fn){
+        this.fn = fn;
+
+        this.fn(() =>{
+            this.resolve();
+        })
+    }
+    then(callback){
+        this.resolve = callback;
+    }
 }
-function readFile(fileName){
-    console.log("inside readfile");
-    return new Promise(readTheFile);
+
+function readTheFile(resolve){
+    setTimeout(function () {
+        console.log("callback based setTimeout completed");
+        resolve();
+    }, 4000)
 }
-const p = readFile();
-function callback(contents){
-    console.log("inside callback");
-    setTimeout(() => console.log(contents), 5000);   
+
+function setTimeoutPromisified(){
+    return new Promise2(readTheFile);
 }
-console.log("before then");
+
+let p = setTimeoutPromisified();
+
+function callback(){
+    console.log("callback has been called");
+}
+
 p.then(callback);
-console.log("after then");
