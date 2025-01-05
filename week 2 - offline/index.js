@@ -19,3 +19,4 @@ function setTimeoutPromisified(duration){
 
 
 // async await
+console.log("hi")
