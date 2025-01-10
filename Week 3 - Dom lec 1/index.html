@@ -1,21 +1,24 @@
-<!DOCTYPE html>
+<!-- creating to do  -->
 <html>
-	<head>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width">
-	  <title>replit</title>
-	</head>
-	
 	<body>
-	  <h1>Todo list</h1>
-	  <h4>1. Take class</h4>
-	  <h4>2. Go out to eat</h4>
-	  <div>
-	    <input type="text" placeholder="add to do"></input>
-	    <button onclick="addToDo()">Add Todo</button>
-	  </div>
-	 
-	   <script src = "index.js"></script>
+		<input type="text" placeholder="add something here">
+		<button onclick="addTodo()">Add to do</button>
 	</body>
-	
+
+
+	<script>
+        function deleteToDo(){
+			console.log("delete  called")
+		}
+
+		function addTodo(){
+			const inputEl = document.querySelector("input");
+			const value = inputEl.value;
+
+			const newDivEl = document.createElement("div");
+			newDivEl.innerHTML ="<div>" + value + "</div><button onclick='deleteToDo()' >delete</button>";
+
+			document.querySelector("body").appendChild(newDivEl);
+		}
+	</script>
 </html>
