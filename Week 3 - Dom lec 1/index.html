@@ -1,24 +1,24 @@
-<!-- creating to do  -->
 <html>
-	<body>
-		<input type="text" placeholder="add something here">
-		<button onclick="addTodo()">Add to do</button>
-	</body>
+  <body>
+    
+    <input type="text">
+    <button onclick="addToDo()">Add to do!</button>
+
+    <script>
+      function addToDo(){
+        const value = document.querySelector("input").value;
+        const spanEl = document.createElement("span");
+        const buttonEl = document.createElement("button");
+        spanEl.innerHTML = value;
+        buttonEl.innerHTML = "Delete";
+
+        const divEl = document.createElement("div");
+        divEl.appendChild(spanEl);
+        divEl.appendChild(buttonEl);
 
 
-	<script>
-        function deleteToDo(){
-			console.log("delete  called")
-		}
-
-		function addTodo(){
-			const inputEl = document.querySelector("input");
-			const value = inputEl.value;
-
-			const newDivEl = document.createElement("div");
-			newDivEl.innerHTML ="<div>" + value + "</div><button onclick='deleteToDo()' >delete</button>";
-
-			document.querySelector("body").appendChild(newDivEl);
-		}
-	</script>
+        document.querySelector("body").appendChild(divEl);
+      }
+    </script>
+  </body>
 </html>
