@@ -1,8 +1,3 @@
-function sum(a,b){
-    return a + b;
-}
-
-let a = 5;
-let b = 6;
-
-console.log(sum(a,b));
+const path = require("path");
+console.log(__dirname);
+console.log(path.join(__dirname,"index.js"));
