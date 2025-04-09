@@ -1,43 +1,55 @@
- 
-// import './App.css'
+// function App() {
+//   return (
+//     <>
+//     <ToggleMessage />
+//     <ToggleMessage />
+//     <ToggleMessage />
+//     </>
+//   )
+// }
 
-function App() {
-  return (
-    <>
-    <ToggleMessage />
-    <ToggleMessage />
-    <ToggleMessage />
-    <Post name="Tejas Kadak"/>
+import { useEffect, useState } from "react"
 
-<Post name="Shreyas Kadak"/>
+// import React, { useState } from 'react';
 
-    </>
+// const ToggleMessage = () => {
+//     const [notificationCount, setnotificationCount] = useState(0);
 
+//     function toggle(){
+//       setnotificationCount(notificationCount + 1);
+//     }
     
-  )
+
+//     return (
+//         <div>
+//             <button onClick={toggle}>
+//                 Toggle Message
+//             </button>
+//             <p>notification count : {notificationCount}</p>
+//             {/* {isVisible && <p>This message is conditionally rendered!</p>} */}
+//         </div>
+//     );
+// };
+
+
+function App(){
+  const [count, setCount] = useState(0);
+
+  function increaseCount() {
+    setCount(currentValue => currentValue + 1);
+  }
+
+
+  useEffect(function() {
+    console.log("above setinterval");
+    setInterval(increaseCount, 1000);
+  },[])
+
+
+  return <div>
+{count}
+   </div>
+  
 }
 
-import React, { useState } from 'react';
-
-const ToggleMessage = () => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    return (
-        <div>
-            <button onClick={() => setIsVisible(!isVisible)}>
-                Toggle Message
-            </button>
-            {isVisible && <p>This message is conditionally rendered!</p>}
-        </div>
-    );
-};
-
-
-function Post({name}){
-  return(
-  <div>
-    hello my name is {name}
-  </div>
-  );
-}
 export default App
