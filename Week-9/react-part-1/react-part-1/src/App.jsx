@@ -1,55 +1,40 @@
-// function App() {
-//   return (
-//     <>
-//     <ToggleMessage />
-//     <ToggleMessage />
-//     <ToggleMessage />
-//     </>
-//   )
-// }
+import React, { useState, useEffect } from 'react';
 
-import { useEffect, useState } from "react"
+// Grandma's Component
+function GrandmaComponent() {
+  useEffect(() => {
+    console.log("👵 Hello! Grandma's page is now showing.");
 
-// import React, { useState } from 'react';
+    return () => {
+      console.log("👋 Bye-bye! Grandma's page is going away.");
+    };
+  }, []);
 
-// const ToggleMessage = () => {
-//     const [notificationCount, setnotificationCount] = useState(0);
-
-//     function toggle(){
-//       setnotificationCount(notificationCount + 1);
-//     }
-    
-
-//     return (
-//         <div>
-//             <button onClick={toggle}>
-//                 Toggle Message
-//             </button>
-//             <p>notification count : {notificationCount}</p>
-//             {/* {isVisible && <p>This message is conditionally rendered!</p>} */}
-//         </div>
-//     );
-// };
-
-
-function App(){
-  const [count, setCount] = useState(0);
-
-  function increaseCount() {
-    setCount(currentValue => currentValue + 1);
-  }
-
-
-  useEffect(function() {
-    console.log("above setinterval");
-    setInterval(increaseCount, 1000);
-  },[])
-
-
-  return <div>
-{count}
-   </div>
-  
+  return (
+    <div style={{ padding: '20px', border: '2px dashed pink' }}>
+      <h2>Grandma's Lovely Corner 💖</h2>
+    </div>
+  );
 }
 
-export default App
+// Main App
+function App() {
+  const [showGrandma, setShowGrandma] = useState(true);
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <button
+        onClick={() => setShowGrandma(!showGrandma)}
+       
+      >
+        {showGrandma ? 'Hide Grandma 👵' : 'Show Grandma 👀'}
+      </button>
+
+      <div style={{ marginTop: '30px' }}>
+        {showGrandma && <GrandmaComponent />}
+      </div>
+    </div>
+  );
+}
+
+export default App;
